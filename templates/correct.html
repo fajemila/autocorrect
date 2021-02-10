@@ -1,0 +1,29 @@
+{% extends 'overview.html' %}
+
+{% block head%}
+<title>Home</title>
+{% endblock %}
+{% block body%}
+<br>
+<h1 style="text-align: center;">Yoruba Autocorrect</h1>
+<h3 style="text-align: center;">Check My <a href="https://github.com/fajemila">Github Repo </a>For COde</h3>
+<br>
+<div class="bg-light p-5 rounded">
+    <div class="col-sm-8 mx-auto">
+        <form action="/correct" method='POST'>
+            <div class="form-group">
+                <label for="content">Enter Yoruba word:</label>
+                <input type="text" name="text" placeholder="text" required="required" />
+            </div>
+            <br>
+            <input type='submit' value='Correct'>
+        </form>
+        <br>
+        {%for x in tmp_corrections%}
+            <p>{{x}}</p>
+        {%endfor%}
+        <!-- <p>{{"".join(tmp_corrections)}}</p> -->
+    </div>
+</div>
+
+{% endblock %}
